@@ -1,0 +1,71 @@
+.button {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 14px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.button.collapse-all {
+  color: #000000;
+}
+
+.button.view-progress {
+  color: #000000;
+}
+
+.button.publish-all {
+  color: #000000;
+}
+
+.button.add-module {
+  background-color: #e53232;
+  color: #fff;
+}
+
+.button.more-options {
+  color: #000000;
+}
+
+.button-container {
+  text-align: right;
+  margin: 5px 0;
+}
+
+.wd-modules,
+.wd-modules * {
+  border-radius: 0%;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.wd-modules {
+  margin: 5px;
+}
+
+.wd-modules > li {
+  background-color: lightgray;
+  border: 1px solid gray !important;
+  border-left: none !important;
+}
+
+.wd-modules > li > div {
+  padding: 6px;
+  border-left: 1px solid gray !important;
+}
+
+.wd-modules > li > ul > li {
+  padding: 5px;
+  border-top: 1px solid gray !important;
+  border-left: 2px solid green;
+}
+
+.wd-modules > li {
+  margin-bottom: 20px;
+}
