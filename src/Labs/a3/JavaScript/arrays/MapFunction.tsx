@@ -1,20 +1,16 @@
-function Array5() {
+function MapFunction() {
     let numberArray1 = [1, 2, 3, 4, 5, 6];
     const square = (a: number) => a * a;
 
     const squares = numberArray1.map(square);
     const cubes = numberArray1.map(a => a * a * a);
 
-    // Rendering stringArray2 elements as list items
     return (
-        <>
-            <ul>
-                {numberArray1.map((string, index) => (
-                    <li key={index}>{string}</li>
-                ))}
-            </ul>
-        </>
+        <div>
+            <h2>Map</h2>
+            squares = {squares}<br />
+            cubes = {cubes}<br />
+        </div>
     );
 }
-
-export default Array5;
+export default MapFunction

@@ -1,17 +1,17 @@
-
-
-    const square  = (a: number) => a * a;
-    const plusOne = (a: number) => a + 1;
-    const twoSquared = square(2);
-    const threePlusOne = plusOne(3);
+const square  = (a: number) => a * a;
+const plusOne = (a: number) => a + 1;
+const twoSquared = square(2);
+const threePlusOne = plusOne(3);
 
 function Func3() {
     return (
-        <>
-        <h1>Paranthesis and parameters</h1>
-        twoSquared = {square(2)}
-        </>
-    )
-
+        <div>
+            <h2>Parenthesis and Parameters</h2>
+            twoSquared = {twoSquared}<br />
+            square(2) = {square(2)}<br />
+            threePlusOne = {threePlusOne}<br />
+            plusOne(3) = {plusOne(3)}<br />
+        </div>
+    );
 }
-export default Func3
+export default Func3;

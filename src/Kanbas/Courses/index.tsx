@@ -1,18 +1,41 @@
 import { courses } from "../../Kanbas/Database";
-import { Navigate, Route, Routes, useParams } from "react-router-dom";
+import { Navigate, Route, Routes, useParams, Link, useLocation } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import CourseNavigation from "./Navigation";
 import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments";
-
+import { Breadcrumb } from "react-bootstrap";
 
 function Courses() {
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
+  const location = useLocation();
+
+  const isHomeRoute = location.pathname.includes('/Home');
+  const isModulesRoute = location.pathname.includes('/Modules');
+  const isPiazzaRoute = location.pathname.includes('/Piazza');
+  const isGradesRoute = location.pathname.includes('/Grades');
+  const isAssignmentsRoute = location.pathname.includes('/Assignments');
   return (
     <div>
-      <h1><HiMiniBars3 /> Course {course?.name}</h1>
+      <h1>
+        <Breadcrumb>
+          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/Kanbas/Dashboard" }}>
+            <HiMiniBars3 /> Courses
+          </Breadcrumb.Item>
+          <Breadcrumb.Item linkAs={Link} linkProps={{ to: `/Kanbas/Courses/${course?._id}/Home` }}>
+            {course?.name}
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            {isHomeRoute && 'Home'}
+            {isModulesRoute && 'Modules'}
+            {isPiazzaRoute && 'Piazza'}
+            {isGradesRoute && 'Grades'}
+            {isAssignmentsRoute && 'Assignments'}
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </h1>
       <CourseNavigation />
       <div>
         <div
