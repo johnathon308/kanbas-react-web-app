@@ -17,6 +17,70 @@ function ModuleList() {
   const module = useSelector((state: KanbasState) => 
     state.modulesReducer.module);
   const dispatch = useDispatch();
+  return (
+    <>
+      <ul className="list-group wd-modules">
+      <li className="list-group-item">
+      <div className="button-container">
+        <button 
+          className="button add-module"
+          onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
+          Add
+        </button>
+        <button 
+          className="button update-module"
+          onClick={() => dispatch(updateModule(module))}>
+          Update
+        </button>
+      </div>
+      <div className="module-textarea-container">
+        <input 
+          className="module-input"
+          value={module.name}
+          onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))}/>
+        <textarea 
+          className="description-textarea"
+          value={module.description}
+          onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))}/>
+      </div>
+      </li>
+        {moduleList
+        .filter((module) => module.course === courseId)
+        .map((module, index) => (
+          <li key={index} className="list-group-item">
+            <button type="button" className="edit"
+              onClick={() => dispatch(setModule(module))}>
+              Edit
+            </button>
+            <button type="button" className="delete"
+              onClick={() => dispatch(deleteModule(module._id))}>
+              Delete
+            </button>
+            <div>
+              <FaEllipsisV className="me-2" />
+              {module.name}
+              <span className="float-end">
+                <FaCheckCircle className="text-success" />
+                <FaPlusCircle className="ms-2" />
+                <FaEllipsisV className="ms-2" />
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+export default ModuleList;
+
+
+
+
+
+
+
+
+
   // const [moduleList, setModuleList] = useState<any[]>(modules);
   // const [module, setModule] = useState({
   //   _id: "0", name: "New Module",
@@ -45,67 +109,3 @@ function ModuleList() {
   //   });
   //   setModuleList(newModuleList);
   // };
-
-
-  return (
-    <>
-      <ul className="list-group wd-modules">
-      <li className="list-group-item">
-        <button 
-            onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
-          Add
-        </button>
-        <button 
-            onClick={() => dispatch(updateModule(module))}>
-          Update
-        </button>
-        <input value={module.name}
-          onChange={(e) => dispatch(setModule({ ...module, name: e.target.value }))
-        }/>
-        <textarea value={module.description}
-          onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))
-        }/>
-      </li>
-        {modulesList
-        .filter((module) => module.course === courseId)
-        .map((module, index) => (
-          <li key={index} className="list-group-item">
-            <button
-              onClick={() => dispatch(setModule(module))}>
-              Edit
-            </button>
-            <button
-              onClick={() => dispatch(deleteModule(module._id))}>
-              Delete
-            </button>
-            {/* onClick={() => setSelectedModule(module)}> */}
-            <div>
-              <FaEllipsisV className="me-2" />
-              {module.name}
-              <span className="float-end">
-                <FaCheckCircle className="text-success" />
-                <FaPlusCircle className="ms-2" />
-                <FaEllipsisV className="ms-2" />
-              </span>
-            </div>
-            {selectedModule._id === module._id && (
-              <ul className="list-group">
-                {module.lessons?.map((lesson) => (
-                  <li className="list-group-item">
-                    <FaEllipsisV className="me-2" />
-                    {lesson.name}
-                    <span className="float-end">
-                      <FaCheckCircle className="text-success" />
-                      <FaEllipsisV className="ms-2" />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}
-export default ModuleList;

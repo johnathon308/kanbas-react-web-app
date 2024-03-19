@@ -8,9 +8,21 @@
     cursor: pointer;
     border: 1px solid #3498db;
     border-radius: 5px;
-    margin-right: 5px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
   }
   
+  .edit {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .delete {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+
   .button.collapse-all {
     color: #000000;
   }
@@ -34,7 +46,7 @@
   
   .button-container {
     text-align: right;
-    margin: 5px 0;
+    margin: 10px 0;
   }
   
   .wd-modules,
@@ -70,3 +82,70 @@
     margin-bottom: 20px;
   }
   
+
+  .module-textarea-container {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .module-input,
+  .description-textarea {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .wd-modules {
+    margin: 10px;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .wd-modules > li {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .wd-modules > li > div {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .float-end {
+    float: right;
+  }
+  
+  .me-2 {
+    margin-right: 0.5rem;
+  }
+  
+  .ms-2 {
+    margin-left: 0.5rem;
+  }
+  
+  .text-success {
+    color: #28a745;
+  }
+
+  .update-module {
+    margin-left: 10px;
+    padding: 5px;
+  }
+
+  .add-module {
+    margin-left: 10px;
+    padding: 5px;
+  }
+
+  .edit {
+    padding: 5px;
+  }
+
+  .delete {
+    margin-left: 5px;
+    padding: 5px;
+  }
